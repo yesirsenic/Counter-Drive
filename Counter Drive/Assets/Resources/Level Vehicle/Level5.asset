@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0a262e4a7cf084ebaf77c647f74a12, type: 3}
+  m_Name: Level5
+  m_EditorClassIdentifier: Assembly-CSharp::LevelVehicleBasket
+  VehicleList:
+  - {fileID: 8803206192519271402, guid: 9cb159dc07f2dbe49ae1311c1ac83ba0, type: 3}
+  - {fileID: 3769962099860209615, guid: 144e0a946054d81488b15a649b8c9e74, type: 3}
+  - {fileID: 3301626003239686806, guid: b4121a52cd08b8e4b9c4e9b714385aef, type: 3}
+  - {fileID: 1456409361951576251, guid: 3bea0f550f6f1404197b0034c596d30a, type: 3}
+  - {fileID: 9127908645876533109, guid: ae5191a40684418489510283ef7cc949, type: 3}

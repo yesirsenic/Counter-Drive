@@ -9,6 +9,9 @@ public class VehicleSpawner : MonoBehaviour
     [Header("Spawn Points (4)")]
     public Transform[] spawnPoints;
 
+    [SerializeField]
+    private GameObject SpawnComp;
+
     public bool SpawnAt(int index)
     {
         if (index < 0 || index >= spawnPoints.Length)
@@ -18,9 +21,11 @@ public class VehicleSpawner : MonoBehaviour
         if (entry == null)
             return false;
 
-        Instantiate(entry.prefab,
+        GameObject spawnCar = Instantiate(entry.prefab,
                     spawnPoints[index].position,
                     Quaternion.identity);
+
+        spawnCar.transform.SetParent(SpawnComp.transform);
 
         vehicleBasket.Consume(entry);
 
@@ -28,6 +33,8 @@ public class VehicleSpawner : MonoBehaviour
         {
             Debug.Log("차량 바구니가 모두 비었습니다!");
         }
+
+        GameManager.Instance.aliveCount++;
 
         return true;
     }
@@ -39,6 +46,7 @@ public class VehicleSpawner : MonoBehaviour
 
     IEnumerator RepeatSpawn()
     {
+
         while(!vehicleBasket.IsEmpty())
         {
             int randomNum = Random.Range(0, 4);

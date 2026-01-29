@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,6 +7,8 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance { get; private set; }
 
     [SerializeField]
     List<LevelVehicleBasket> levelVehicleBaskets;
@@ -19,13 +22,25 @@ public class GameManager : MonoBehaviour
     private int currentLevel = 1;
     private int LevelNum = 1;
 
-    private int minSpawnNum = 10;
-    private int maxSpawnNum = 20;
-
+    private int minSpawnNum = 2;
+    private int maxSpawnNum = 5;
 
     private float baseInterval = 2.0f;
 
     private LevelVehicleBasket currentLevelBasket;
+
+    public int aliveCount = 0;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -35,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void __Init__()
     {
         vehicleBasket.vehicleEntrys.Clear();
+        aliveCount = 0;
     }
 
 
@@ -76,9 +92,9 @@ public class GameManager : MonoBehaviour
         if (currentLevelBasket == null)
             return;
 
-        foreach(var v in currentLevelBasket.VehicleList)
+        foreach (var v in currentLevelBasket.VehicleList)
         {
-            int number = Random.Range(minSpawnNum, maxSpawnNum+1);
+            int number = Random.Range(minSpawnNum, maxSpawnNum + 1);
 
             VehicleEntry ve = new VehicleEntry();
 
@@ -98,6 +114,14 @@ public class GameManager : MonoBehaviour
         vehicleSpawner.StartRepeatSpawn();
 
 
+    }
+
+    public void CheckClear()
+    {
+        if(aliveCount == 0 && vehicleBasket.IsEmpty())
+        {
+            Debug.Log("Clear 하였습니다.");
+        }
     }
 
 }
