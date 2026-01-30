@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DestroyCollider
   - User
+  - ClearCollider
   layers:
   - Default
   - TransparentFX

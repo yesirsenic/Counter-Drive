@@ -20,6 +20,9 @@ public class CarController : MonoBehaviour
     private float startX;
     private bool isDragging;
 
+    //Clear 시 사용
+    float straightenSpeed = 12f; // 빠르게 잡는 속도 (10~20 추천)
+
     void Start()
     {
         targetX = transform.position.x;
@@ -27,9 +30,22 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        HandlePointerInput();
-        ApplyMovement();
-        ApplyTilt();
+
+        if(GameManager.Instance.isControl)
+        {
+            ApplyTilt();
+            HandlePointerInput();
+            ApplyMovement();
+        }
+
+        if (!GameManager.Instance.isControl)
+        {
+            ApplyStraighten();
+        }
+            
+
+        
+        
     }
 
     // =============================
@@ -78,4 +94,17 @@ public class CarController : MonoBehaviour
         currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSmooth);
         transform.rotation = Quaternion.Euler(0f, -currentTilt, 0f);
     }
+    void ApplyStraighten()
+    {
+        currentTilt = Mathf.Lerp(currentTilt, 0f, Time.deltaTime * straightenSpeed);
+        transform.rotation = Quaternion.Euler(0f, -currentTilt, 0f);
+
+        // 거의 0이면 정렬 완료
+        if (Mathf.Abs(currentTilt) < 0.1f)
+        {
+            currentTilt = 0f;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
+
 }

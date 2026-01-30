@@ -19,17 +19,25 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     VehicleBasket vehicleBasket;
 
+    [SerializeField]
+    GameObject userCar;
+
     private int currentLevel = 1;
     private int LevelNum = 1;
 
     private int minSpawnNum = 2;
     private int maxSpawnNum = 5;
 
-    private float baseInterval = 2.0f;
+    private float baseInterval = 1.0f;
+
+    [SerializeField]
+    Vector3 carSpawnPos;
 
     private LevelVehicleBasket currentLevelBasket;
 
     public int aliveCount = 0;
+
+    public bool isControl;
 
     void Awake()
     {
@@ -44,13 +52,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        isControl = true;
         LevelSet();
     }
 
-    private void __Init__()
+    public void __Init__()
     {
+        isControl = true;
         vehicleBasket.vehicleEntrys.Clear();
         aliveCount = 0;
+        userCar.transform.position = carSpawnPos;
+        LevelSet();
     }
 
 
@@ -106,7 +118,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        float interval = Mathf.Max(0.5f, baseInterval * Mathf.Pow(0.85f, currentLevel - 1));
+        float interval = Mathf.Max(0.5f, baseInterval * Mathf.Pow(0.85f, currentLevel -1));
         vehicleBasket.RepeatInterval = interval;
 
         vehicleSpawner.vehicleBasket = vehicleBasket;
@@ -116,11 +128,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void GameClear()
+    {
+        currentLevel++;
+    }
+
     public void CheckClear()
     {
         if(aliveCount == 0 && vehicleBasket.IsEmpty())
         {
             Debug.Log("Clear 하였습니다.");
+            isControl = false;
+            GameClear();
         }
     }
 

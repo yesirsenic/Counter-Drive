@@ -12,6 +12,9 @@ public class CameraFollow : MonoBehaviour
     {
         if (!target) return;
 
+        if (!GameManager.Instance.isControl)
+            return;
+
         Vector3 desiredPos = target.position + offset;
         desiredPos.x = Mathf.Lerp(transform.position.x, desiredPos.x, horizontalFollowFactor);
 

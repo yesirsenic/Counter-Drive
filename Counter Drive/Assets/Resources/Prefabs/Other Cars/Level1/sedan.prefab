@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c47ed463311c894e8c45f9d9588a568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vehicle
-  speed: 5
+  speed: 10
 --- !u!65 &488911661920572591
 BoxCollider:
   m_ObjectHideFlags: 0
