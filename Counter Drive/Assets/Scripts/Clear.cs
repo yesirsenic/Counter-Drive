@@ -15,11 +15,6 @@ public class Clear : MonoBehaviour
         mainMenuButton.SetActive(true);
     }
 
-    public void ToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void ClearButtonOff()
     {
         resumeButton.SetActive(false);

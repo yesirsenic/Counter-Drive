@@ -1424,6 +1424,10 @@
       <Project>{CDEBDD10-D39C-607E-5041-52A82AA1FE11}</Project>
       <Name>Unity.AI.Navigation</Name>
     </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{31788A1D-4F7C-64AE-3A51-81A7780222C8}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
       <Project>{51D172FF-0514-D4A1-F19F-0BC5E884F00C}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
@@ -1511,6 +1515,10 @@
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
       <Project>{83733F04-347E-B375-DF70-84B17EB2FC95}</Project>
       <Name>Unity.VisualScripting.Core.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{FF932192-B408-35B0-B1DE-0F6C1B48D11E}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.csproj">
       <Project>{7C131E3B-C172-DAFD-040C-6214DEE9FF4D}</Project>

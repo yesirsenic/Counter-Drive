@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject userCar;
 
+    [SerializeField]
+    GameObject Explosion;
+
+    [SerializeField]
+    GameObject GameOverPopup;
+
     private int currentLevel = 1;
     private int LevelNum = 1;
 
@@ -39,6 +46,8 @@ public class GameManager : MonoBehaviour
 
     public bool isControl;
 
+    public bool isGameOver;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -52,21 +61,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         isControl = true;
+        isGameOver = false;
+        userCar.SetActive(true);
         LevelSet();
     }
 
-    public void __Init__()
-    {
-        isControl = true;
-        vehicleBasket.vehicleEntrys.Clear();
-        aliveCount = 0;
-        userCar.transform.position = carSpawnPos;
-        LevelSet();
-    }
-
-
-
+    
     private void LevelSet()
     {
         int temp = currentLevel / 20;
@@ -133,14 +135,51 @@ public class GameManager : MonoBehaviour
         currentLevel++;
     }
 
+    public void __Init__()
+    {
+        Time.timeScale = 1f;
+        isControl = true;
+        isGameOver = false;
+        vehicleBasket.vehicleEntrys.Clear();
+        aliveCount = 0;
+        userCar.SetActive(true);
+        userCar.transform.position = carSpawnPos;
+        LevelSet();
+    }
+
     public void CheckClear()
     {
-        if(aliveCount == 0 && vehicleBasket.IsEmpty())
+        if(aliveCount == 0 && vehicleBasket.IsEmpty() && isGameOver)
         {
             Debug.Log("Clear 하였습니다.");
             isControl = false;
             GameClear();
         }
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOverLine());
+    }
+
+    IEnumerator GameOverLine()
+    {
+        isControl = false;
+        isGameOver = true;
+
+        userCar.SetActive(false);
+
+        Vector3 spawnPos = userCar.transform.position + new Vector3(0, 1.2f, 0);
+
+        Instantiate(Explosion, spawnPos, Quaternion.identity);
+
+        yield return new WaitForSeconds(1f);
+
+        Time.timeScale = 0f;
+
+        GameOverPopup.SetActive(true);
+
+
     }
 
 }

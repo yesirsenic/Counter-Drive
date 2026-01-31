@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6190839024238937902
+--- !u!1001 &4107665261885010331
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,43 +10,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.262
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.38
+      value: -7.074
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -62,11 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       propertyPath: m_Name
-      value: race
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
-      propertyPath: m_TagString
-      value: User
+      value: MainMenu_Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -74,97 +70,25 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8815765986448391494}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4074916353746243791}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 136285353792614916}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 947557855523137017}
+      addedObject: {fileID: 5558870741821426010}
   m_SourcePrefab: {fileID: 100100000, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
---- !u!1 &6425280537189841535 stripped
+--- !u!1 &3873150771936824522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 194f67380294f8c4e90c5fef1d69f504, type: 3}
-  m_PrefabInstance: {fileID: 6190839024238937902}
+  m_PrefabInstance: {fileID: 4107665261885010331}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8815765986448391494
+--- !u!114 &5558870741821426010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425280537189841535}
+  m_GameObject: {fileID: 3873150771936824522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11adc99036451a488ca2e3af0cb46ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 271efbb9855bf5b4e81b8a1814f3b21f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CarController
-  moveSensitivity: 8
-  maxX: 2.6
-  moveSmooth: 12
-  tiltAngle: 36
-  tiltSmooth: 10
---- !u!65 &4074916353746243791
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425280537189841535}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.59306103, z: 2.5795593}
-  m_Center: {x: 0, y: 0.41765973, z: -0.0071870782}
---- !u!54 &136285353792614916
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425280537189841535}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &947557855523137017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6425280537189841535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102b0672c74bb0d46b11fa2ef3203a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UserCar
-  clearPopup: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CarIdleSway
+  xAmount: 0.03
+  yAmount: 0.01
+  speed: 1.5

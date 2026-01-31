@@ -33,9 +33,16 @@ public class Vehicle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!GameManager.Instance.isControl)
+            return;
+
         if(collision.gameObject.CompareTag("User"))
         {
             Debug.Log("ºÎµúÈû");
+
+            GameManager.Instance.GameOver();
+
+            
         }
     }
 }
