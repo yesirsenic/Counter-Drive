@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject GameOverPopup;
+
+    [SerializeField]
+    Text levelText;
 
     private int currentLevel = 1;
     private int LevelNum = 1;
@@ -61,11 +65,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(PlayerPrefs.GetInt("Level") == 0)
+        {
+            PlayerPrefs.SetInt("Level", 1);
+        }
+
+        currentLevel = PlayerPrefs.GetInt("Level");
+        levelText.text = "LEVEL " + currentLevel;
         Time.timeScale = 1f;
         isControl = true;
         isGameOver = false;
         userCar.SetActive(true);
         LevelSet();
+        Debug.Log("Current Level: " + currentLevel);
     }
 
     
@@ -133,10 +145,13 @@ public class GameManager : MonoBehaviour
     private void GameClear()
     {
         currentLevel++;
+        PlayerPrefs.SetInt("Level", currentLevel);
     }
 
     public void __Init__()
     {
+        currentLevel = PlayerPrefs.GetInt("Level");
+        levelText.text = "LEVEL " + currentLevel;
         Time.timeScale = 1f;
         isControl = true;
         isGameOver = false;
@@ -145,11 +160,13 @@ public class GameManager : MonoBehaviour
         userCar.SetActive(true);
         userCar.transform.position = carSpawnPos;
         LevelSet();
+
+        Debug.Log("Current Level: " + currentLevel);
     }
 
     public void CheckClear()
     {
-        if(aliveCount == 0 && vehicleBasket.IsEmpty() && isGameOver)
+        if(aliveCount == 0 && vehicleBasket.IsEmpty() && !isGameOver)
         {
             Debug.Log("Clear 하였습니다.");
             isControl = false;
