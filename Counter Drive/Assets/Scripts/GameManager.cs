@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var v in currentLevelBasket.VehicleList)
         {
-            int number = Random.Range(minSpawnNum, maxSpawnNum + 1);
+            int number = Random.Range(minSpawnNum + LevelNum * 2, maxSpawnNum + 1 + LevelNum * 2);
 
             VehicleEntry ve = new VehicleEntry();
 
@@ -132,7 +132,9 @@ public class GameManager : MonoBehaviour
 
         }
 
-        float interval = Mathf.Max(0.5f, baseInterval * Mathf.Pow(0.85f, currentLevel -1));
+        float t = Mathf.Clamp01(currentLevel / 100f);
+        float interval = Mathf.Max(0.5f, baseInterval * Mathf.Pow(0.95f, currentLevel - 1));
+
         vehicleBasket.RepeatInterval = interval;
 
         vehicleSpawner.vehicleBasket = vehicleBasket;

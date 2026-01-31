@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Level4
   m_EditorClassIdentifier: Assembly-CSharp::LevelVehicleBasket
   VehicleList:
-  - {fileID: 1456409361951576251, guid: 3bea0f550f6f1404197b0034c596d30a, type: 3}
-  - {fileID: 9127908645876533109, guid: ae5191a40684418489510283ef7cc949, type: 3}
-  - {fileID: 8869750122840246127, guid: 59c938f9412700f4e9a7397665a3415b, type: 3}
-  - {fileID: 9222366304500352675, guid: 8db1e41007dacc048a55c428daffbe90, type: 3}
-  - {fileID: 7411773002979548742, guid: d5e50c558d48fe846be2163849808cbc, type: 3}
-  - {fileID: 8877262344984488095, guid: a034034345adb234b92ba11d872d47a6, type: 3}
+  - {fileID: 8803206192519271402, guid: 9cb159dc07f2dbe49ae1311c1ac83ba0, type: 3}
+  - {fileID: 3769962099860209615, guid: 144e0a946054d81488b15a649b8c9e74, type: 3}
+  - {fileID: 3301626003239686806, guid: b4121a52cd08b8e4b9c4e9b714385aef, type: 3}

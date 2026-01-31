@@ -12,6 +12,8 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField]
     private GameObject SpawnComp;
 
+    int lastIndex = -1;
+
     public bool SpawnAt(int index)
     {
         if (index < 0 || index >= spawnPoints.Length)
@@ -46,18 +48,23 @@ public class VehicleSpawner : MonoBehaviour
 
     IEnumerator RepeatSpawn()
     {
-
-        while(!vehicleBasket.IsEmpty())
+        while (!vehicleBasket.IsEmpty())
         {
-            int randomNum = Random.Range(0, 4);
+            int randomNum;
+
+            do
+            {
+                randomNum = Random.Range(0, 4);
+            }
+            while (randomNum == lastIndex);
+
+            lastIndex = randomNum;
 
             SpawnAt(randomNum);
-
             yield return new WaitForSeconds(vehicleBasket.RepeatInterval);
         }
-  
     }
 
 
-    
+
 }
