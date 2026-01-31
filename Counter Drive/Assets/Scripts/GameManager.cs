@@ -132,8 +132,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        float t = Mathf.Clamp01(currentLevel / 100f);
-        float interval = Mathf.Max(0.5f, baseInterval * Mathf.Pow(0.95f, currentLevel - 1));
+        float interval = Mathf.Max(0.35f, Mathf.Pow(0.9895f, currentLevel - 1));
 
         vehicleBasket.RepeatInterval = interval;
 
