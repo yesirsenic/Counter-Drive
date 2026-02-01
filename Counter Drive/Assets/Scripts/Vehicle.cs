@@ -6,27 +6,13 @@ public class Vehicle : MonoBehaviour
     [Tooltip("초당 이동 거리")]
     public float speed = 5f;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource engineSource;
-
-    private void Awake()
-    {
-        // AudioSource가 없으면 자동으로 하나 붙여줌 (안전장치)
-        if (engineSource == null)
-        {
-            engineSource = gameObject.AddComponent<AudioSource>();
-            SetupAudioSource(engineSource);
-        }
-    }
 
     private void Start()
     {
         transform.Rotate(0, 180f, 0);
 
-        if (engineSource != null && engineSource.clip != null)
-        {
-            engineSource.Play();
-        }
+        EngineSoundManager.Instance.SetTarget(transform);
+
     }
 
     void Update()
@@ -42,6 +28,7 @@ public class Vehicle : MonoBehaviour
             GameManager.Instance.aliveCount--;
             GameManager.Instance.CheckClear();
 
+            EngineSoundManager.Instance.ClearTarget(transform);
             Destroy(gameObject);
         }
     }
@@ -57,21 +44,5 @@ public class Vehicle : MonoBehaviour
 
             GameManager.Instance.GameOver();
         }
-    }
-
-    // 🔧 AudioSource 기본 세팅
-    private void SetupAudioSource(AudioSource source)
-    {
-        source.playOnAwake = false;
-        source.loop = true;
-
-        // ⭐ 핵심
-        source.spatialBlend = 1f;          // 3D 사운드
-        source.rolloffMode = AudioRolloffMode.Logarithmic;
-        source.minDistance = 5f;
-        source.maxDistance = 40f;
-
-        source.dopplerLevel = 0f;          // 도플러 싫으면 0
-        source.volume = 1f;
     }
 }

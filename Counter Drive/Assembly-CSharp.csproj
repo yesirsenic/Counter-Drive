@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RoadScroller.cs" />
+    <Compile Include="Assets\Scripts\EngineSoundManager.cs" />
     <Compile Include="Assets\Mirza Beig\Cinematic Explosions FREE\Scripts\FPSTest.cs" />
     <Compile Include="Assets\Scripts\Vehicle.cs" />
     <Compile Include="Assets\Mirza Beig\Cinematic Explosions FREE\Scripts\DemoController.cs" />
