@@ -79,6 +79,7 @@
     <Compile Include="Assets\Mirza Beig\Cinematic Explosions FREE\Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\VehicleSpawner.cs" />
+    <Compile Include="Assets\Scripts\PerformanceSettings.cs" />
     <Compile Include="Assets\Scripts\NoAdPurcahsed.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\LevelVehicleBasket.cs" />
