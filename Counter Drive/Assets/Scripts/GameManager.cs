@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text levelText;
 
+    [SerializeField]
+    GameObject TutorialComp;
+
     private int currentLevel = 1;
     private int LevelNum = 1;
 
@@ -52,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver;
 
+    public bool isTutorial;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -70,6 +75,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Level", 1);
         }
 
+        if(PlayerPrefs.GetInt("First") == 0)
+        {
+            TutorialComp.SetActive(true);
+            isTutorial = true;
+            return;
+        }
+
         currentLevel = PlayerPrefs.GetInt("Level");
         levelText.text = "LEVEL " + currentLevel;
         Time.timeScale = 1f;
@@ -78,8 +90,6 @@ public class GameManager : MonoBehaviour
         userCar.SetActive(true);
         LevelSet();
         Debug.Log("Current Level: " + currentLevel);
-
-        //광고 관련
 ;
     }
 
@@ -170,7 +180,7 @@ public class GameManager : MonoBehaviour
 
     public void CheckClear()
     {
-        if(aliveCount == 0 && vehicleBasket.IsEmpty() && !isGameOver)
+        if(aliveCount == 0 && vehicleBasket.IsEmpty() && !isGameOver && !isTutorial)
         {
             Debug.Log("Clear 하였습니다.");
             isControl = false;
@@ -182,6 +192,22 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         StartCoroutine(GameOverLine());
+    }
+
+    public void TutorialOff()
+    {
+        TutorialComp.SetActive(false);
+        PlayerPrefs.SetInt("First", 1);
+        isTutorial = false;
+
+        currentLevel = PlayerPrefs.GetInt("Level");
+        levelText.text = "LEVEL " + currentLevel;
+        Time.timeScale = 1f;
+        isControl = true;
+        isGameOver = false;
+        userCar.SetActive(true);
+        LevelSet();
+        Debug.Log("Current Level: " + currentLevel);
     }
 
     IEnumerator GameOverLine()

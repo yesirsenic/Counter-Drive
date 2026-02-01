@@ -7,7 +7,7 @@ public class UserCar : MonoBehaviour
 
     private void Update()
     {
-        if(!GameManager.Instance.isControl && !GameManager.Instance.isGameOver)
+        if(!GameManager.Instance.isControl && !GameManager.Instance.isGameOver && !GameManager.Instance.isTutorial)
         {
             transform.Translate(Vector3.forward * 10f * Time.deltaTime, Space.World);
         }

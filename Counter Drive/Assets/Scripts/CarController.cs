@@ -41,6 +41,11 @@ public class CarController : MonoBehaviour
         if (!GameManager.Instance.isControl)
         {
             ApplyStraighten();
+
+            if(GameManager.Instance.isTutorial)
+            {
+                TutorialTouch();
+            }
         }
             
 
@@ -104,6 +109,24 @@ public class CarController : MonoBehaviour
         {
             currentTilt = 0f;
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
+
+    void TutorialTouch()
+    {
+        if (Pointer.current == null)
+            return;
+
+        if (Pointer.current.press.wasPressedThisFrame)
+        {
+            if(PlayerPrefs.GetInt("First") == 0)
+            {
+                GameManager.Instance.TutorialOff();
+            }
+
+            isDragging = true;
+            pointerStartPos = Pointer.current.position.ReadValue();
+            startX = targetX;
         }
     }
 
