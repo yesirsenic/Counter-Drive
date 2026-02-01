@@ -19,5 +19,10 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
+    public void BtnClickSound()
+    {
+        SFXManager.Instance.PlayShot(SFXType.ButtonClick);
+    }
+
 
 }

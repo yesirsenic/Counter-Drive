@@ -175,6 +175,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Clear 하였습니다.");
             isControl = false;
             GameClear();
+            SFXManager.Instance.PlayDriveAway();
         }
     }
 
@@ -192,6 +193,8 @@ public class GameManager : MonoBehaviour
 
         Vector3 spawnPos = userCar.transform.position + new Vector3(0, 1.2f, 0);
 
+        SFXManager.Instance.PlayShot(SFXType.GameOverBoom);
+
         Instantiate(Explosion, spawnPos, Quaternion.identity);
 
         yield return new WaitForSeconds(1f);
@@ -199,6 +202,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
         GameOverPopup.SetActive(true);
+
+        SFXManager.Instance.PlayShot(SFXType.GameOver);
 
         AdsManager.Instance.OnGameOver();
 
