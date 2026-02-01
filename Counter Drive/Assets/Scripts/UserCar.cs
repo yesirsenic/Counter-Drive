@@ -17,6 +17,7 @@ public class UserCar : MonoBehaviour
     {
         if(other.CompareTag("ClearCollider"))
         {
+            AdsManager.Instance.OnGameClear();
             clearPopup.SetActive(true);
         }
     }

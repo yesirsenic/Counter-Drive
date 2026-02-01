@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
         userCar.SetActive(true);
         LevelSet();
         Debug.Log("Current Level: " + currentLevel);
+
+        //±¤°í °ü·Ã
+;
     }
 
     
@@ -196,6 +199,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
 
         GameOverPopup.SetActive(true);
+
+        AdsManager.Instance.OnGameOver();
 
 
     }
