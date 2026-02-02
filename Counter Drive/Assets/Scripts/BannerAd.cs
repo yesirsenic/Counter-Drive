@@ -37,7 +37,7 @@ public class BannerAd : MonoBehaviour
     // ⭐ 핵심 함수 (이거 하나면 끝)
     public void RefreshBanner()
     {
-        if (PlayerPrefs.GetInt("NO_ADS", 0) == 1)
+        if (NoAdsManager.Instance.HasNoAds)
         {
             bannerView?.Destroy();
             bannerView = null;
