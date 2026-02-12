@@ -11,5 +11,10 @@ public class NoAdPurcahsed : MonoBehaviour
         }
     }
 
+    public void BuyNoAdsButton()
+    {
+        IAPManager.Instance.BuyNoAds();
+    }
+
     
 }
